@@ -6,56 +6,40 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface KimnooBuildinfoDisplay {
         /**
-          * The first name
+          * Function to call to write to clipboard. This does not need to be set and only exists for injecting in a mock for unit testing.
          */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "writeToClipboard": (_: string) => Promise<void>;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLKimnooBuildinfoDisplayElement extends Components.KimnooBuildinfoDisplay, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLKimnooBuildinfoDisplayElement: {
+        prototype: HTMLKimnooBuildinfoDisplayElement;
+        new (): HTMLKimnooBuildinfoDisplayElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "kimnoo-buildinfo-display": HTMLKimnooBuildinfoDisplayElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface KimnooBuildinfoDisplay {
         /**
-          * The first name
+          * Function to call to write to clipboard. This does not need to be set and only exists for injecting in a mock for unit testing.
          */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "writeToClipboard"?: (_: string) => Promise<void>;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "kimnoo-buildinfo-display": KimnooBuildinfoDisplay;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "kimnoo-buildinfo-display": LocalJSX.KimnooBuildinfoDisplay & JSXBase.HTMLAttributes<HTMLKimnooBuildinfoDisplayElement>;
         }
     }
 }
