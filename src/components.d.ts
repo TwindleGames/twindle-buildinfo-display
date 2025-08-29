@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface KimnooBuildinfoDisplay {
+    interface TwindleBuildinfoDisplay {
         /**
           * Function to call to write to clipboard. This does not need to be set and only exists for injecting in a mock for unit testing.
          */
@@ -14,32 +14,32 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLKimnooBuildinfoDisplayElement extends Components.KimnooBuildinfoDisplay, HTMLStencilElement {
+    interface HTMLTwindleBuildinfoDisplayElement extends Components.TwindleBuildinfoDisplay, HTMLStencilElement {
     }
-    var HTMLKimnooBuildinfoDisplayElement: {
-        prototype: HTMLKimnooBuildinfoDisplayElement;
-        new (): HTMLKimnooBuildinfoDisplayElement;
+    var HTMLTwindleBuildinfoDisplayElement: {
+        prototype: HTMLTwindleBuildinfoDisplayElement;
+        new (): HTMLTwindleBuildinfoDisplayElement;
     };
     interface HTMLElementTagNameMap {
-        "kimnoo-buildinfo-display": HTMLKimnooBuildinfoDisplayElement;
+        "twindle-buildinfo-display": HTMLTwindleBuildinfoDisplayElement;
     }
 }
 declare namespace LocalJSX {
-    interface KimnooBuildinfoDisplay {
+    interface TwindleBuildinfoDisplay {
         /**
           * Function to call to write to clipboard. This does not need to be set and only exists for injecting in a mock for unit testing.
          */
         "writeToClipboard"?: (_: string) => Promise<void>;
     }
     interface IntrinsicElements {
-        "kimnoo-buildinfo-display": KimnooBuildinfoDisplay;
+        "twindle-buildinfo-display": TwindleBuildinfoDisplay;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "kimnoo-buildinfo-display": LocalJSX.KimnooBuildinfoDisplay & JSXBase.HTMLAttributes<HTMLKimnooBuildinfoDisplayElement>;
+            "twindle-buildinfo-display": LocalJSX.TwindleBuildinfoDisplay & JSXBase.HTMLAttributes<HTMLTwindleBuildinfoDisplayElement>;
         }
     }
 }

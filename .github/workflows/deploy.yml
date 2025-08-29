@@ -26,4 +26,4 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           local-dir: 'dist/'
-          server-dir: ./kimnoo-buildinfo-display/
+          server-dir: ./twindle-buildinfo-display/

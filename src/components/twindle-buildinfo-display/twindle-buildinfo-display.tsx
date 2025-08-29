@@ -3,8 +3,8 @@ import { BuildInfo } from '../../types/buildinfo';
 import { capitalize } from './capitalize';
 
 @Component({
-  tag: 'kimnoo-buildinfo-display',
-  styleUrl: 'kimnoo-buildinfo-display.css',
+  tag: 'twindle-buildinfo-display',
+  styleUrl: 'twindle-buildinfo-display.css',
   shadow: true,
 })
 export class BuildinfoDisplay {

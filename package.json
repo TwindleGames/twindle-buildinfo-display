@@ -1,17 +1,17 @@
 {
-  "name": "kimnoo-buildinfo-display",
-  "version": "1.0.0",
-  "description": "Stencil Component Starter",
+  "name": "twindle-buildinfo-display",
+  "version": "2.0.0",
+  "description": "Custom HTML element for displaying build info on Twindle's testing web builds",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/kimnoo-buildinfo-display/kimnoo-buildinfo-display.esm.js",
+  "unpkg": "dist/twindle-buildinfo-display/twindle-buildinfo-display.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/kimnoo-buildinfo-display/kimnoo-buildinfo-display.esm.js",
-      "require": "./dist/kimnoo-buildinfo-display/kimnoo-buildinfo-display.cjs.js"
+      "import": "./dist/twindle-buildinfo-display/twindle-buildinfo-display.esm.js",
+      "require": "./dist/twindle-buildinfo-display/twindle-buildinfo-display.cjs.js"
     },
     "./my-component": {
       "import": "./dist/components/my-component.js",
@@ -22,10 +22,6 @@
       "require": "./loader/index.cjs",
       "types": "./loader/index.d.ts"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/stenciljs/component-starter.git"
   },
   "files": [
     "dist/",

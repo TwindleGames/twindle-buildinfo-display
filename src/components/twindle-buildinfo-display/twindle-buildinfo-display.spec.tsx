@@ -1,9 +1,9 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { BuildinfoDisplay } from './kimnoo-buildinfo-display';
+import { BuildinfoDisplay } from './twindle-buildinfo-display';
 import { BuildInfo } from '../../types/buildinfo';
 import { h } from '@stencil/core';
 
-describe('kimnoo-buildinfo-display', () => {
+describe('twindle-buildinfo-display', () => {
   let jsonResponse: BuildInfo;
   let fetchedBuildinfo: boolean;
   let failResponse: boolean;
@@ -24,14 +24,14 @@ describe('kimnoo-buildinfo-display', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
       components: [BuildinfoDisplay],
-      html: '<kimnoo-buildinfo-display></kimnoo-buildinfo-display>',
+      html: '<twindle-buildinfo-display></twindle-buildinfo-display>',
     });
     expect(root).toBeTruthy();
   });
   it('fetches build info', async () => {
     const { root } = await newSpecPage({
       components: [BuildinfoDisplay],
-      html: '<kimnoo-buildinfo-display></kimnoo-buildinfo-display>',
+      html: '<twindle-buildinfo-display></twindle-buildinfo-display>',
     });
     expect(fetchedBuildinfo).toBeTruthy();
     expect(root.shadowRoot.textContent).toContain(jsonResponse.project);
@@ -48,7 +48,7 @@ describe('kimnoo-buildinfo-display', () => {
     });
     const { root } = await newSpecPage({
       components: [BuildinfoDisplay],
-      html: '<kimnoo-buildinfo-display></kimnoo-buildinfo-display>',
+      html: '<twindle-buildinfo-display></twindle-buildinfo-display>',
     });
     expect(root.shadowRoot.textContent.length).toBe(0);
     expect(errorMessageShown).toBeTruthy();
@@ -57,7 +57,7 @@ describe('kimnoo-buildinfo-display', () => {
     jsonResponse.branch = 'potato';
     const { root } = await newSpecPage({
       components: [BuildinfoDisplay],
-      html: '<kimnoo-buildinfo-display></kimnoo-buildinfo-display>',
+      html: '<twindle-buildinfo-display></twindle-buildinfo-display>',
     });
     expect(root.shadowRoot.textContent).toContain(jsonResponse.branch);
   });
@@ -65,7 +65,7 @@ describe('kimnoo-buildinfo-display', () => {
     newSpecPage({
       components: [BuildinfoDisplay],
       template: () => (
-        <kimnoo-buildinfo-display
+        <twindle-buildinfo-display
           writeToClipboard={async text => {
             expect(text).toBe(
               `Project: Kimchi-Noodles
@@ -77,7 +77,7 @@ Date: 2025-04-29T00:45:58+0000`,
             );
             done();
           }}
-        ></kimnoo-buildinfo-display>
+        ></twindle-buildinfo-display>
       ),
     }).then(({ root }) => {
       root.dispatchEvent(new MouseEvent('click', { button: 0, which: 1 }));
@@ -86,7 +86,7 @@ Date: 2025-04-29T00:45:58+0000`,
   it('hides itself on middle click', async () => {
     const page = await newSpecPage({
       components: [BuildinfoDisplay],
-      html: '<kimnoo-buildinfo-display></kimnoo-buildinfo-display>',
+      html: '<twindle-buildinfo-display></twindle-buildinfo-display>',
     });
     page.root.dispatchEvent(new MouseEvent('auxclick', { button: 1, which: 2 }));
     await page.waitForChanges();
