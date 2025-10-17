@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface TwindleBuildinfoDisplay {
         /**
+          * Used for testing to pass in a mock version of `window`.
+         */
+        "windowProvider": Window;
+        /**
           * Function to call to write to clipboard. This does not need to be set and only exists for injecting in a mock for unit testing.
          */
         "writeToClipboard": (_: string) => Promise<void>;
@@ -26,6 +30,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface TwindleBuildinfoDisplay {
+        /**
+          * Used for testing to pass in a mock version of `window`.
+         */
+        "windowProvider"?: Window;
         /**
           * Function to call to write to clipboard. This does not need to be set and only exists for injecting in a mock for unit testing.
          */

@@ -62,10 +62,14 @@ describe('twindle-buildinfo-display', () => {
     expect(root.shadowRoot.textContent).toContain(jsonResponse.branch);
   });
   it('copies build info to clipboard when clicked', done => {
+    const windowMock = {
+      location: { href: 'https://www.example.com/' },
+    };
     newSpecPage({
       components: [BuildinfoDisplay],
       template: () => (
         <twindle-buildinfo-display
+          windowProvider={windowMock as Window}
           writeToClipboard={async text => {
             expect(text).toBe(
               `Project: Kimchi-Noodles
@@ -73,7 +77,8 @@ Environment: dev
 Revision: 21
 Commit: 35cbc60
 Branch: main
-Date: 2025-04-29T00:45:58+0000`,
+Date: 2025-04-29T00:45:58+0000
+URL: https://www.example.com/`,
             );
             done();
           }}

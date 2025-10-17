@@ -18,6 +18,11 @@ export class BuildinfoDisplay {
    */
   @Prop() public writeToClipboard: (_: string) => Promise<void> = async (text: string) => await navigator.clipboard.writeText(text);
 
+  /**
+   * Used for testing to pass in a mock version of `window`.
+   */
+  @Prop() public windowProvider: Window = window;
+
   public async componentWillLoad() {
     try {
       const response = await fetch('buildinfo.json');
@@ -31,6 +36,7 @@ export class BuildinfoDisplay {
   public async onClick() {
     const buildInfoString = Object.keys(this.buildInfo)
       .map(key => `${capitalize(key)}: ${this.buildInfo[key]}`)
+      .concat(['URL: ' + this.windowProvider.location.href])
       .join('\n');
     await this.writeToClipboard(buildInfoString);
   }
